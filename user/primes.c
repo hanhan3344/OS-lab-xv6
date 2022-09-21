@@ -25,7 +25,7 @@ primes()
   // 定义管道描述符数组
   int fd[2];
   // 从管道读取数据
-  if (read(0, &previous, sizeof(int)))
+  if (read(0, &previous, sizeof(int))) //0: stdin
   {
     // 第一个一定是素数，直接打印
     printf("prime %d\n", previous);
@@ -78,7 +78,7 @@ main(int argc, char *argv[])
     for (int i = 2; i < 36; i++)
     {
       // 将其写入管道
-      write(1, &i, sizeof(int));
+      write(1, &i, sizeof(int)); //1: stdout
     }
   }
   else
